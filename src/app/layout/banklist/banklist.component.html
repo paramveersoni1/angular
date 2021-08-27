@@ -23,7 +23,7 @@
         <td><img class="sfk" src={{data.image}} alt="sjad"></td>
         <td>{{data.address}}</td>
         <td>{{data.accountNo}}</td>
-        <td><a class="sko"  href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+        <td><a class="sko" (click)="addEditModalOpen(data)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
         <td><button class="sko" (click)="deletitem(data,index)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
       </tr>
      

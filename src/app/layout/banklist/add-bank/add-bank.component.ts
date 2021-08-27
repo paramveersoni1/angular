@@ -39,10 +39,25 @@ export class AddBankComponent implements OnInit {
       image : ['',Validators.required],
       accountNo : ['',Validators.required],
    });
-   
+   if(this.form.value){
+      this.patchData(this.modalData);
+   }
   } 
+  patchData(data){
+    console.log(data)
+     this.form.patchValue({
+       name:data.name,
+       address:data.address,
+       image:data.image,
+       accountNo :data.accountNo,
+     })
+ }
 
-  // edit data
+    // editdata
+
+ 
+
+  // add data
   addEdit(){
     const obj=JSON.parse(JSON.stringify(this.form.value))
     this.http.postData(ApiUrl.addBankDATA, obj).subscribe(res=> {
@@ -53,6 +68,7 @@ export class AddBankComponent implements OnInit {
     
   }
 
+  // image upload 
   selectImage(event){
      if(event.target.files && event.target.files[0]){
       const obj = {

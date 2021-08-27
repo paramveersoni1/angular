@@ -31,9 +31,9 @@ export class BanklistComponent implements OnInit {
 
   ngOnInit(){      
      this.getData();
-     
   }
-
+ 
+  // fetch data
   getData(){
       this.http.getData(ApiUrl.BankListing)
       .subscribe(res => {
@@ -42,6 +42,8 @@ export class BanklistComponent implements OnInit {
       console.log(this.allData)
   }
 
+
+  // delete data
   deletitem( Data , index){
          const obj: any = {
             _id:Data._id,
@@ -52,8 +54,10 @@ export class BanklistComponent implements OnInit {
          })
   }
 
+ 
+
   
-  
+  // import component with data 
   addEditModalOpen (data?:any){
   const modalRef=this.modalService.show(AddBankComponent ,{
      initialState:{
