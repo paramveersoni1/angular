@@ -1,0 +1,16 @@
+<p>side-bar works!</p>
+<!-- Sidebar menu-->
+<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+
+<aside class="app-sidebar" id="app-sidebar">
+    <ul class="app-menu">
+
+
+        <li *ngFor="let data of sideBar">
+            <a routerLinkActive="active" [routerLink]="['/'+data?.path]" href="javascript://" class="app-menu__item">
+                <i class="app-menu__icon" [class]="data.icon" aria-hidden="true"></i>
+                <span class="app-menu__label">{{data?.name}}</span>
+            </a>
+        </li>
+    </ul>
+</aside>

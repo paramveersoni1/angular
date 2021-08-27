@@ -1,0 +1,76 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">
+      {{!modalData ? 'Add' : 'Edit'}} {{util?.breadcrumb}}
+  </h4>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="addEdit()">
+  <div class="modal-body">
+      
+      <div class="row">       
+          <div class="col-lg-10 col-md-12 ">
+              <div class="form-group">
+                  <label class="required">Name</label>
+                  <input type="text" formControlName="name" class="form-control"
+                            placeholder="Enter Name">
+                            <!-- <div class="text-error" *ngIf="form.controls['name'].errors?.required && showError">
+                              This field is required.
+                          </div> -->
+              </div>
+          </div>
+      </div>
+
+       <div class="row">       
+                  <div class="col-lg-10 col-md-12 ">
+                      <div class="form-group">
+                          <label class="required">Adress</label>
+                          <input type="text" formControlName="address" class="form-control"
+                                    placeholder="Enter Address">
+                                    
+                      </div>
+                  </div>
+              </div>
+
+                <div class="row">       
+                    <div class="col-lg-10 col-md-12 ">
+                        <div class="form-group">
+                            <label class="required">Account no.</label>
+                            <input type="text" formControlName="accountNo" class="form-control"
+                                    placeholder="Enter Address">
+                                    
+                        </div>
+                    </div> 
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="required">Image</label>
+                            <div class="product-images">
+                                <input type="file" class="file-upload" id="image" (change)="selectImage($event)">
+                                <label for="image">
+                                    <img [src]="'/assets/img/ic_camera.png'">
+                                </label>
+                                <img class="ml-4 uploaded-img" height="72" for="image" [src]="form.value.image"
+                                     *ngIf='form.value.image'>
+                                <i class="fa fa-times-circle fa-trash-css" (click)="removeImage()"
+                                   *ngIf='form.value.image'></i>
+                            </div>
+                            <div class="text-error" *ngIf="form.controls['image'].errors?.required && showError">
+                                Please select image.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          
+  
+              
+
+     
+</div>
+  <div class="modal-footer">
+      <div class="col-md-12 modal-footer-button">
+          <button (click)="bsModalRef.hide()" type="button" class="btn btn-default mr-3">Cancel</button>
+          <button type="submit" class="btn btn-primary">{{!modalData ? 'Submit' : 'Update'}}</button>
+      </div>
+  </div>
+</form>
