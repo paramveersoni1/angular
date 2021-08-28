@@ -27,7 +27,7 @@
        <td>{{data.age}}</td>
        <td>{{data.gender}}</td>
        <td><a class="sko"  href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-       <td><a class="sko"  href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+       <td><a class="sko"  (click)="deletitem(data,index)"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
 
      </tr>
     
@@ -52,7 +52,7 @@
            <div class="">
              <div class="row d-block header">
                <h1>Users List &nbsp;</h1>
-               <h3>Add Bank Details Here</h3>
+               <h3>user  Details Here</h3>
              </div>
              <div class="row body">
                <form action="#">

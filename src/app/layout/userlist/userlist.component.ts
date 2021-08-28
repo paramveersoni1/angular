@@ -15,7 +15,8 @@ export class UserlistComponent implements OnInit {
   ngOnInit(){
     this.userlist();
   }
-
+  
+  // add userlist
   userlist(){
       this.http.getData(ApiUrl.userListing)
       .subscribe(res => {
@@ -23,5 +24,18 @@ export class UserlistComponent implements OnInit {
       })
       console.log(this.userdata)
   }
+
+  // delete user list
+  deletitem( Data , index){
+    const obj: any = {
+       _id:Data._id,
+       isDeleted: true , 
+    };
+    this.http.putData(ApiUrl.deleteBank, obj).subscribe((res)=>{
+       this.userdata.splice(index,1)
+    })
+}
+
+
 
 }

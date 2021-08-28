@@ -20,8 +20,7 @@ import { AddBankComponent } from './add-bank/add-bank.component';
 
 export class BanklistComponent implements OnInit {
   allData:any = [] ;
-  form : FormGroup ;
-  posts;
+  pager = {};
   
   constructor(
     private http: HttpService ,
@@ -31,44 +30,42 @@ export class BanklistComponent implements OnInit {
 
   ngOnInit(){      
      this.getData();
+     
   }
  
   // fetch data
   getData(){
       this.http.getData(ApiUrl.BankListing)
       .subscribe(res => {
-        this.allData=res.data.dataList;
-      }) 
-      console.log(this.allData)
+        this.allData = res.data.dataList;
+      }, error => {})
   }
 
 
   // delete data
-  deletitem( Data , index){
-         const obj: any = {
-            _id:Data._id,
-            isDeleted: true , 
-         };
-         this.http.putData(ApiUrl.deleteBank, obj).subscribe((res)=>{
-            this.allData.splice(index,1)
-         })
+  deletitem(data, index) {
+    const obj: any = {
+      _id: data._id,
+      isDeleted: true
+    };
+    this.http.putData(ApiUrl.Delete_Charities, obj).subscribe((res) => {
+      this.allData.splice(index, 1)
+    }, error => {});
   }
 
  
-
-  
-  // import component with data 
-  addEditModalOpen (data?:any){
-  const modalRef=this.modalService.show(AddBankComponent ,{
-     initialState:{
-        modalData:data,
-     },
-     backdrop:'static',
-     keyboard:false,
-     class:'model-more-lg'
-  });
-  modalRef.content.onClose.subscribe(res =>{
-    this.getData();
-  })
+  addEditModalOpen(data?: any) {
+    const modalRef = this.modalService.show(AddBankComponent, {
+      backdrop: 'static',
+      keyboard: false,
+      class: 'model-more-lg'
+    });
+    if(data) {
+      modalRef.content.patchData(data);
+    }
+    modalRef.content.onClose.subscribe(res => {
+      this.getData();
+    })
   }
+
 }

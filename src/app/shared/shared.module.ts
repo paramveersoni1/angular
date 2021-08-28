@@ -20,6 +20,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { SeeMoreComponent } from './components/see-more/see-more.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { JwPaginateComponent } from './jw-paginate/jw-paginate.component';
 
 const directives = [NumberOnlyDirective, AmountDirective, NoRecordComponent, ReplaceUnderscorePipe, SelectLanguage,
     SeeMoreComponent, ProductDetailsComponent];
@@ -29,7 +30,8 @@ const imports = [FormsModule, LightboxModule, ReactiveFormsModule, HttpClientMod
 
 @NgModule({
     declarations: [
-        ...directives
+        ...directives,
+        JwPaginateComponent
     ],
     imports: [
         CommonModule, NgMultiSelectDropDownModule.forRoot(),

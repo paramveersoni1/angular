@@ -14,19 +14,21 @@ import { UtilService } from 'src/app/services/util/util.service';
 })
 export class AddBankComponent implements OnInit {
 
-  form : FormGroup ;
   public onClose: Subject<{}> = new Subject();
+
+  form : FormGroup ;
   modalData: any;
   seletedFile = null ;
+  id = '';
+
   constructor(
-    private http: HttpService ,
-    private fb : FormBuilder,
-    private bsModalRef : BsModalRef,
+    private http: HttpService ,private fb : FormBuilder, private bsModalRef : BsModalRef,
     private util:UtilService
   ) { }
  
 
   ngOnInit() {
+    this.onClose = new Subject();
    this.AddBanklist();
   }
 
@@ -39,11 +41,9 @@ export class AddBankComponent implements OnInit {
       image : ['',Validators.required],
       accountNo : ['',Validators.required],
    });
-   if(this.form.value){
-      this.patchData(this.modalData);
-   }
   } 
   patchData(data){
+    this.id = data._id;
     console.log(data)
      this.form.patchValue({
        name:data.name,
@@ -53,25 +53,11 @@ export class AddBankComponent implements OnInit {
      })
  }
 
-    // editdata
-
- 
-
-  // add data
-  addEdit(){
-    const obj=JSON.parse(JSON.stringify(this.form.value))
-    this.http.postData(ApiUrl.addBankDATA, obj).subscribe(res=> {
-      this.bsModalRef.hide();
-       console.log(res);
-    });
-    
-    
-  }
 
   // image upload 
   selectImage(event){
      if(event.target.files && event.target.files[0]){
-      const obj = {
+        const obj = {
         image: event.target.files[0]
     };
     this.uploadImage(obj);
@@ -84,6 +70,21 @@ export class AddBankComponent implements OnInit {
     }, () => {
         document.getElementById('image')[`value`] = '';
     });
-}
+}   
+   
+    formSubmit() {
+      if (this.form.valid) {
+        this.addEdit();
+      }
+    }
+
+  // add data
+  addEdit(){
+    const obj=JSON.parse(JSON.stringify(this.form.value))
+    this.http.postData(ApiUrl.addBankDATA, obj).subscribe(res=> {
+      this.bsModalRef.hide();
+       console.log(res);
+    });  
+  }
 
 }

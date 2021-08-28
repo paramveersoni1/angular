@@ -11,8 +11,9 @@ export const GlobalVariable = {
 export const SideBarList = {
     list: [
          {path: 'dashboard', name: 'Dashboard', icon: 'fa fa-flag'},
-         {path: 'banklist', name: 'Banklist', icon: 'fa fa-university'},
-         {path : 'userlist', name:'userlist', icon: ' fa fa-user-o'}
+         {path: 'banklist', name: 'Bank List', icon: 'fa fa-university'},
+         {path : 'userlist', name:'User List', icon: ' fa fa-user-o'},
+         {path : 'charities', name:'charities List', icon: 'fa fa-codiepie'}
     ]
 };
 
