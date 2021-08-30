@@ -26,6 +26,11 @@ input {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+input#image {
+  visibility: hidden !important;
+  display: none;
+}
+
 
 .container {
   max-width: 510px;
@@ -122,26 +127,6 @@ form label {
   margin: 0 0 0.5em 0;
   color: #4f6fad;
   font-size: 1em;
-}
-td{
-  text-transform: capitalize;
-}
-th{
-  text-transform: capitalize;
-}
-.sko{
-  cursor: pointer;
-  transition: all 0.5s ease;
-}
-.sko:hover{
-  color: #000;
-  transform: scale(1.2);
-}
-.sko {
-  font-size: 20px;
-  background: none;
-  border: none;
-  color: #3f51b5;
 }
 form input {
   margin: 0 0 0.5em 0;
@@ -346,6 +331,8 @@ margin: 0 0 0 0.5em;
 
 input {
   width: 100%;
+  text-transform: capitalize;
+  outline: none;
 }
 
 label {
@@ -374,6 +361,12 @@ li small {
   display: none;
 }
 }
-tr {
-  text-align: initial;
+select.lists {
+  margin: 0 0 0.5em 0 !important;
+  border: 1px solid #ccc !important;
+  padding: 6px 10px !important;
+  color: #555 !important;
+  outline: none !important;
+  font-size: 1em !important;
+  width: 100% !important;
 }

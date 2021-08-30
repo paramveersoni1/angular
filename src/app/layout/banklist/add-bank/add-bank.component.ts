@@ -80,10 +80,13 @@ export class AddBankComponent implements OnInit {
 
   // add data
   addEdit(){
-    const obj=JSON.parse(JSON.stringify(this.form.value))
-    this.http.postData(ApiUrl.addBankDATA, obj).subscribe(res=> {
+    const obj = JSON.parse(JSON.stringify(this.form.value));
+    if (this.id) {
+      obj['_id'] = this.id;
+    }
+    this.http.postData(ApiUrl.addBankDATA, obj).subscribe(res => {
       this.bsModalRef.hide();
-       console.log(res);
+      this.onClose.next();
     });  
   }
 

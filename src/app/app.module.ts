@@ -18,11 +18,15 @@ import { ErrorInterceptor } from './services/interceptors/error.interceptor';
 import { JwtInterceptor } from './services/interceptors/jwt.interceptor';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2OrderModule } from 'ng2-order-pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,10 @@ import { environment } from '../environments/environment';
     SharedModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    Ng2SearchPipeModule,
+    NgxPaginationModule,
+    Ng2OrderModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

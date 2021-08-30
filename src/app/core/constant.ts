@@ -13,7 +13,8 @@ export const SideBarList = {
          {path: 'dashboard', name: 'Dashboard', icon: 'fa fa-flag'},
          {path: 'banklist', name: 'Bank List', icon: 'fa fa-university'},
          {path : 'userlist', name:'User List', icon: ' fa fa-user-o'},
-         {path : 'charities', name:'charities List', icon: 'fa fa-codiepie'}
+         {path : 'charities', name:'charities List', icon: 'fa fa-codiepie'},
+         { path: 'subscribeplans', name:'Subscriblan', icon:'fa fa-scribd'}
     ]
 };
 

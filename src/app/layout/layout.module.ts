@@ -13,7 +13,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { ChangePasswordModule } from './common/change-password/change-password.module';
 import { SideBarComponent } from './common/side-bar/side-bar.component';
 
-
 @NgModule({
   declarations: [
     LayoutComponent,

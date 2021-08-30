@@ -10,4 +10,9 @@ export const ApiUrl = {
     charitiesdata : 'Admin/charitiesList',
     charitiesAdd :'Admin/addEditCharities',
     Delete_Charities: 'Admin/deleteBlockedCharities',
+
+    subscribelist:'Admin/subscribePlanListing',
+
+    subscribedelete : 'Admin/deleteSubscribePlans',
+    addEditsubscribeplan: 'Admin/addEditSubscribePlans',
 };

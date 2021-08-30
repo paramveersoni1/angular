@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 
+
 // components
 import { LayoutComponent } from './layout.component';
 
@@ -33,6 +34,11 @@ const routes: Routes = [
             {
                 path: 'charities',
                 loadChildren: './charities/charities.module#CharitiesModule',
+                data: {breadcrumb: 'Dashboard', title: 'charities'}
+            },
+            {
+                path: 'subscribeplans',
+                loadChildren: './subscribeplans/subscribeplans.module#SubscribeplansModule',
                 data: {breadcrumb: 'Dashboard', title: 'charities'}
             },
             

@@ -12,6 +12,7 @@ import { CharitiesAddComponent } from './charities-add/charities-add.component';
 export class CharitiesComponent implements OnInit {
 
   charities = [];
+  name : any;
 
   constructor(
     private http: HttpService,
@@ -51,6 +52,16 @@ export class CharitiesComponent implements OnInit {
     modalRef.content.onClose.subscribe(res => {
       this.charitieList();
     })
+  }
+
+  Search(){
+    if(this.name == ""){
+       this.ngOnInit();
+    }else{
+      this.charities = this.charities.filter(res =>{
+         return res.name.toLocaleLowerCase().match(this.name.toLocaleLowerCase()); 
+      })
+    }
   }
 
 }

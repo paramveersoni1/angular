@@ -22,6 +22,8 @@ export class BanklistComponent implements OnInit {
   allData:any = [] ;
   pager = {};
   
+  name :any;
+
   constructor(
     private http: HttpService ,
     private fb : FormBuilder,
@@ -40,18 +42,27 @@ export class BanklistComponent implements OnInit {
         this.allData = res.data.dataList;
       }, error => {})
   }
-
-
-  // delete data
+ 
   deletitem(data, index) {
     const obj: any = {
       _id: data._id,
       isDeleted: true
     };
-    this.http.putData(ApiUrl.Delete_Charities, obj).subscribe((res) => {
+    this.http.putData(ApiUrl.deleteBank, obj).subscribe((res) => {
       this.allData.splice(index, 1)
     }, error => {});
   }
+
+  Search(){
+    if(this.name == ""){
+       this.ngOnInit();
+    }else{
+      this.allData = this.allData.filter(res =>{
+         return res.name.toLocaleLowerCase().match(this.name.toLocaleLowerCase()); 
+      })
+    }
+  }
+
 
  
   addEditModalOpen(data?: any) {

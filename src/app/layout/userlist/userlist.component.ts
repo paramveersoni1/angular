@@ -10,31 +10,45 @@ import { HttpService } from 'src/app/services/http/http.service';
 })
 export class UserlistComponent implements OnInit {
 
-  constructor(private http : HttpService) { }
-  userdata : any;
-  ngOnInit(){
+  constructor(private http: HttpService) { }
+  userdata: any;
+  userName:any;
+
+  ngOnInit() {
     this.userlist();
   }
+
   
+
   // add userlist
-  userlist(){
-      this.http.getData(ApiUrl.userListing)
+  userlist() {
+    this.http.getData(ApiUrl.userListing)
       .subscribe(res => {
-        this.userdata=res.data.dataList;
+        this.userdata = res.data.dataList;
       })
-      console.log(this.userdata)
+    console.log(this.userdata)
   }
 
   // delete user list
-  deletitem( Data , index){
+  deletitem(Data, index) {
     const obj: any = {
-       _id:Data._id,
-       isDeleted: true , 
+      _id: Data._id,
+      isDeleted: true,
     };
-    this.http.putData(ApiUrl.deleteBank, obj).subscribe((res)=>{
-       this.userdata.splice(index,1)
+    this.http.putData(ApiUrl.deleteBank, obj).subscribe((res) => {
+      this.userdata.splice(index, 1)
     })
-}
+  }
+
+  Search(){
+    if(this.userName == ""){
+       this.ngOnInit();
+    }else{
+      this.userdata = this.userdata.filter(res =>{
+         return res.userName.toLocaleLowerCase().match(this.userName.toLocaleLowerCase()); 
+      })
+    }
+  }
 
 
 

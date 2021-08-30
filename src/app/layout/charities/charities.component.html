@@ -1,10 +1,12 @@
-<div class="addform">
-
-  <button (click)="addEditModalOpen()" class="btn btn-primary float-right" style="margin-top: 0;">
-    + Add New
-  </button>
-
-</div>
+<div class="addform row">
+  <div class="col-6">
+   </div>
+  <div class="col-6 d-flex mt-5 mb-3">
+   <input type="text" name="name" class="form-control mr-3" [(ngModel)]="name" (ngModelChange)="Search()" placeholder="Enter name to search  ">
+   <button (click)="addEditModalOpen()" class="btn btn-primary float-right" style="margin-top: 0;">
+     + Add New
+   </button>
+  </div>
 <table class="table">
   <thead>
     <tr>
