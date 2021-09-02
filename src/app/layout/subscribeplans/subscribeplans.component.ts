@@ -3,7 +3,7 @@ import { HttpService } from 'src/app/services/http/http.service';
 import { ApiUrl } from 'src/app/core/apiUrl';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { AddsubscribeComponent } from './addsubscribe/addsubscribe.component';
-import { PaginationControls } from 'src/app/shared/models/pagination-model';
+
 
 
 
@@ -14,12 +14,13 @@ import { PaginationControls } from 'src/app/shared/models/pagination-model';
 })
 export class SubscribeplansComponent implements OnInit {
 
-  _id: '';
-  type: any;
-  page: number = 1;
-  pagination = new PaginationControls();
-  allData: any;
 
+  type: any;
+
+  public allData =  [];
+
+  p: Number = 1;
+  count: Number = 5;
   constructor(
     private http: HttpService,
     private modalService: BsModalService
@@ -31,25 +32,18 @@ export class SubscribeplansComponent implements OnInit {
   }
 
   subscribedata() {
-
-    const obj :any = {
-      pageNumber:(this.pagination.page -1 ) *10
-    };
-
-    this.http.getData(ApiUrl.subscribelist,obj)
+    this.http.getData(ApiUrl.subscribelist)
       .subscribe(res => {
         this.allData = res.data.dataList;
-        this.pagination.count=res.totalCount;
-        console.log(this.allData);
       }, error => { })
   }
 
-  deletitem(data, index) {
+  deletitem(data, index) { 
     const obj: any = {
-      _id: data._id,
+      id: data.id,
       isDeleted: true
     };
-    this.http.putData(ApiUrl.subscribedelete, obj, true).subscribe((res) => {
+    this.http.putData(ApiUrl.subscribedelete, obj).subscribe((res) => {
       this.allData.splice(index, 1);
       console.log(data)
     }, error => { })

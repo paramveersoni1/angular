@@ -10,12 +10,6 @@ import { LayoutComponent } from './layout.component';
 const routes: Routes = [
     {
         path: '', component: LayoutComponent, children: [
-
-            // {
-            //     path: 'category',
-            //     loadChildren: './category/category.module#CategoryModule',
-            //     data: {breadcrumb: 'Categories', title: 'category'}
-            // },
             {
                 path: 'dashboard',
                 loadChildren: './dashboard/dashboard.module#DashboardModule',
@@ -41,7 +35,17 @@ const routes: Routes = [
                 loadChildren: './subscribeplans/subscribeplans.module#SubscribeplansModule',
                 data: {breadcrumb: 'Dashboard', title: 'charities'}
             },
-            
+             {
+                path: 'task-list',
+                loadChildren: './task-list/task-list.module#TaskListModule',
+                data: {breadcrumb: 'Dashboard', title: 'TaskListModule'}
+            },
+            {
+                path: 'appdata',
+                loadChildren: './appdata/appdata.module#AppdataModule',
+                data: {breadcrumb: 'Dashboard', title: 'appdata'}
+            },
+         
         ]
     }
 ];

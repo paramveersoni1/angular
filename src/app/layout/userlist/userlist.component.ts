@@ -11,14 +11,14 @@ import { HttpService } from 'src/app/services/http/http.service';
 export class UserlistComponent implements OnInit {
 
   constructor(private http: HttpService) { }
-  userdata: any;
+ public userdata =  [];
   userName:any;
+  p: Number = 1;
+  count: Number = 5;
 
   ngOnInit() {
     this.userlist();
   }
-
-  
 
   // add userlist
   userlist() {
@@ -30,14 +30,14 @@ export class UserlistComponent implements OnInit {
   }
 
   // delete user list
-  deletitem(Data, index) {
+ deletitem(data, index) {
     const obj: any = {
-      _id: Data._id,
-      isDeleted: true,
+      _id: data._id,
+      isDeleted: true
     };
-    this.http.putData(ApiUrl.deleteBank, obj).subscribe((res) => {
+    this.http.putData(ApiUrl.userDelet, obj).subscribe((res) => {
       this.userdata.splice(index, 1)
-    })
+    }, error => {});
   }
 
   Search(){

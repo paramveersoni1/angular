@@ -1,0 +1,75 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+        {{!modalData ? 'Add' : 'Edit'}} {{util?.breadcrumb}}
+    </h4>
+  </div>
+
+  
+  <form [formGroup]="form" (ngSubmit)="formSubmit()">
+    <div class="modal-body">    
+        <div class="row">       
+            <div class="col-lg-10 col-md-12 ">
+                <div class="form-group">
+                    <label class="required">Name</label>
+                    <input type="text" formControlName="name" class="form-control"  placeholder="Enter Name">
+                </div>
+            </div>
+        </div>
+        <div class="row">       
+            <div class="col-lg-10 col-md-12 ">
+                <div class="form-group">
+                    <label class="required">MRP</label>
+                    <input type="text" formControlName="mrp" class="form-control"  placeholder="Enter Mrp">
+                </div>
+            </div>
+        </div>
+        <div class="row">       
+            <div class="col-lg-10 col-md-12 ">
+                <div class="form-group">
+                    <label class="required">Discount</label>
+                    <input type="text" formControlName="discount" class="form-control" placeholder="Enter discount">    
+                </div>
+            </div> 
+        </div>
+        <div class="row">       
+            <div class="col-lg-10 col-md-12 ">
+                <div class="form-group">
+                    <label class="required">Shipping Price</label>
+                        <input type="text" formControlName="shippingPrice" class="form-control" placeholder="Enter shipping Price">            
+                </div>
+            </div> 
+        </div>
+        <div class="row">       
+            <div class="col-lg-10 col-md-12 ">
+                <div class="form-group">
+                    <label class="required">Stock</label>
+                    <input type="text" formControlName="stock" class="form-control" placeholder="Enter stock">    
+                </div>
+            </div> 
+        </div>
+        <!-- <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="required">Product Image</label>
+                    <div class="product-images">
+                        <input type="file" class="file-upload d-none" id="picture" (change)="selectImage($event)">
+                            <label for="picture">
+                                <img [src]="'/assets/img/ic_camera.png'">
+                            </label>
+                            <img class="ml-4 uploaded-img" height="72" for="picture" [src]="form.value.picture" *ngIf='form.value.picture'>
+                                  <i class="fa fa-times-circle fa-trash-css" (click)="removeImage()"  *ngIf='form.value.picture'></i>
+                     </div>
+                        <div class="text-error" *ngIf="form.controls['picture'].errors?.required && showError">
+                                  Please select image.
+                        </div>
+                </div>
+            </div>
+        </div>    -->
+    </div>
+    <div class="modal-footer">
+        <div class="col-md-12 modal-footer-button">
+            <button (click)="bsModalRef.hide()" type="button" class="btn btn-default mr-3">Cancel</button>
+            <button type="submit" class="btn btn-primary">{{!modalData ? 'Submit' : 'Update'}}</button>
+        </div>
+    </div>
+  </form>

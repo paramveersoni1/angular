@@ -1,0 +1,40 @@
+<div class="addform row ">
+  <div class="col-6">
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="col-1">past Task name</th>
+        <th class="col-1">performed by name</th>
+        <th class="col-1">start Date</th>
+        <th class="col-1">end Date</th>
+        <th class="col-1">pay Type</th>
+        <th class="col-1">status</th>
+        <th class="col-1">price</th>
+        <th class="col-1">date</th>
+      </tr>
+    </thead>
+    <!-- date: 1630330136306
+endDate: 1630368000000
+isDeleted: false
+payType: "Fixed"
+performedBy: {_id: "612cdccab6e2255cd19482e5", userName: "Test c1"}
+price: 10
+startDate: 1630281600000
+status: "Completed"
+title: "Task 1" -->
+    <tbody>
+      <tr *ngFor="let value of taskdataList">
+        <td>{{ value?.title}}</td>
+        <td>{{value?.performedBy?.userName}}</td>
+        <td>{{value?.startDate | date}}</td>
+        <td>{{value?.endDate | date}}</td>
+        <td>{{value?.payType}}</td>
+        <td>{{value?.status}}</td>
+        <td>{{value?.price}}</td>
+        <td>{{value?.date | date}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

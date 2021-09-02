@@ -1,0 +1,35 @@
+<div class="addform row">
+  <div class="col-6">
+   </div>
+  <div class="col-6 d-flex"  style="justify-content:flex-end;">
+   <button (click)="addEditModalOpen()" class="btn btn-primary " style="margin-top: 0;">
+     + Add New
+   </button>
+  </div>
+</div>
+<table class="table" >
+ <thead>
+   <tr>
+     <th >id</th>
+     <th >universities</th>
+     <th >Edit</th>
+     <th >Delet</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr *ngFor="let data of datalis ">
+     <td></td>
+      <td>{{data.universities}}</td>
+     <td><a class="sko" (click)="addEditModalOpen(data)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+     </td>
+     <td><button class="sko" (click)="deletitem(data,index)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+     </td>
+   </tr>
+
+ </tbody>
+</table>
+
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->

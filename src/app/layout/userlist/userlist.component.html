@@ -22,7 +22,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of userdata">
+    <tr *ngFor="let data of userdata |  paginate: { itemsPerPage: count, currentPage: p }">
       <td>{{data.userName}}</td>
       <td>{{data.email}}</td>
       <td>{{data.password}}</td>
@@ -36,6 +36,9 @@
 
   </tbody>
 </table>
+<div class="text-center w-100  mt-3" >
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
 
 
 <!-- Button trigger modal -->

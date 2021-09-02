@@ -2,26 +2,26 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { Routes, RouterModule } from '@angular/router';
-import { SubscribeplansComponent } from './subscribeplans.component';
-import { AddsubscribeComponent } from './addsubscribe/addsubscribe.component';
-
+import { ProductsComponent } from './products.component';
+import { ProductaddComponent } from './productadd/productadd.component';
 
 
 const routes: Routes = [
   {
-    path: '', component : SubscribeplansComponent,
+    path: '', component : ProductsComponent,
   },
 ]
 
+
 @NgModule({
-  declarations:  [ SubscribeplansComponent, AddsubscribeComponent ],
+  declarations: [ ProductsComponent, ProductaddComponent],
   imports: [
     CommonModule,
     SharedModule,
     RouterModule.forChild(routes),
   ],
   entryComponents:[
-    AddsubscribeComponent
+    [ProductaddComponent]
   ]
 })
-export class SubscribeplansModule { }
+export class ProductsModule { }

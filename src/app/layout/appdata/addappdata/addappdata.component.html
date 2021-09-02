@@ -1,0 +1,45 @@
+
+<form [formGroup]="form" (ngSubmit)="formSubmit()">
+    <div class="modal-body">
+
+        <div formArrayName="universities" class="row">
+
+            <div *ngFor="let cat of form.controls.universities['controls'];let i = index;let last=last"
+                 [formGroupName]="i" class="col-lg-12">
+                <div class="row">
+
+                    <div class="col-8 ">
+                        <div class="form-group">
+                            <label class="required">University</label>
+                            <input type="text" formControlName="universities" class="form-control"
+                                   placeholder="Enter University">
+                            <div class="text-error"
+                                 *ngIf="cat?.controls?.universities?.errors?.required && showError">
+                                This field is required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4 ">
+                        <div style="    margin-top: 33px;" class="d-flex"> 
+                            <i class="fa fa-trash btn btn-default cursor-pointer delete-icon xyz" (click)="universities.removeAt(i)"
+                               *ngIf="form?.value?.universities?.length > 1"style="margin-left: 10px"></i>
+                            <i class="fa fa-plus btn btn-default cursor-pointer plus-icon xyz" (click)="addItem('universities')"
+                               style="margin-left: 10px"></i>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <div class="col-md-12 modal-footer-button">
+            <button (click)="bsModalRef.hide()" type="button" class="btn btn-default mr-3">Cancel</button>
+            <button type="submit" class="btn btn-primary">{{!modalData ? 'Submit' : 'Update'}}</button>
+        </div>
+    </div>
+</form>

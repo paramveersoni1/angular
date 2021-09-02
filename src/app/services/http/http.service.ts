@@ -27,9 +27,11 @@ export class HttpService {
     getData(url: string, data?: any, backGroundUrl?: boolean): Observable<any> {
         const searchParams = this.appendParams(data);
         const apiUrl = `${environment.apiBaseUrl}${url}`;
-        return this.http.get(apiUrl, {params: searchParams}).pipe(map((response: any) => {
+         return this.http.get(apiUrl, {params: searchParams}).pipe(map((response: any) => {
+            
             return response;
         }));
+        // console.log();
     }
 
     /**

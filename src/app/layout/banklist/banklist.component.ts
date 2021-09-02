@@ -26,7 +26,7 @@ export class BanklistComponent implements OnInit {
 
   constructor(
     private http: HttpService ,
-    private fb : FormBuilder,
+ 
     private modalService : BsModalService
     ) { }
 
