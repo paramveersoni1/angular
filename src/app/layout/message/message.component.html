@@ -1,0 +1,11 @@
+<div class="container">
+    <form [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)">
+  <div class="form-group">
+        <label for="email">Description:</label>
+        <angular-editor [placeholder]="'Enter text here...'" formControlName="description"></angular-editor>
+        <div *ngIf="formdata.controls.description.errors && formdata.controls.description.touched" class="error">description is required(Max 400 - Min 5).</div>
+      </div>
+    
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>

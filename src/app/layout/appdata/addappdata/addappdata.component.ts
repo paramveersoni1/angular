@@ -8,6 +8,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { SuccessErrorConst } from 'src/app/core/successErrorConst';
 import { UtilService } from '../../../services/util/util.service';
 
+
 @Component({
   selector: 'app-addappdata',
   templateUrl: './addappdata.component.html',
@@ -25,7 +26,8 @@ export class AddappdataComponent implements OnInit {
     private message: MessageService,
     private http: HttpService,
     public bsModalRef: BsModalRef,
-    public util: UtilService
+    public util: UtilService,
+    
   ) {}
 
   ngOnInit(): void {   
@@ -40,10 +42,7 @@ export class AddappdataComponent implements OnInit {
   if (this.modalData) {
     this.patchData(this.modalData);
   } else {
-
-    this.createItem('universities');
     this.addItem('universities');
-   
   }
 }
 createItem(type): FormGroup {

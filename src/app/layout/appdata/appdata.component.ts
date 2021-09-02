@@ -3,6 +3,7 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { HttpService } from 'src/app/services/http/http.service';
 import { ApiUrl } from 'src/app/core/apiUrl';
 import { AddappdataComponent } from './addappdata/addappdata.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-appdata',
@@ -16,7 +17,8 @@ export class AppdataComponent implements OnInit {
 
   constructor(
     private http: HttpService ,
-    private modalService : BsModalService
+    private modalService : BsModalService,
+    private router: Router,
   ) { }
 
   ngOnInit(){
@@ -29,7 +31,6 @@ export class AppdataComponent implements OnInit {
          console.log(this.datalis)
       })
   }
-
 
 
   deletitem(data, index) {
@@ -53,9 +54,10 @@ export class AppdataComponent implements OnInit {
     }
     modalRef.content.onClose.subscribe(res => {
       this.getappData();
-    })
+     
+    });
+    this.router.navigate(['/massage']); 
   }
-
-
+ 
 
   }

@@ -26,6 +26,7 @@ import { Ng2OrderModule } from 'ng2-order-pipe';
 @NgModule({
   declarations: [
     AppComponent,
+
     
   ],
   imports: [

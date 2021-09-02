@@ -5,6 +5,7 @@
    <button (click)="addEditModalOpen()" class="btn btn-primary " style="margin-top: 0;">
      + Add New
    </button>
+   <a class="btn btn-primary ml-2" [routerLink]="['/message']">massage</a>
   </div>
 </div>
 <table class="table" >
@@ -17,8 +18,8 @@
    </tr>
  </thead>
  <tbody>
-   <tr *ngFor="let data of datalis ">
-     <td></td>
+   <tr *ngFor="let data of datalis;let indexOfelement=index; ">
+     <td>{{indexOfelement+1}}</td>
       <td>{{data.universities}}</td>
      <td><a class="sko" (click)="addEditModalOpen(data)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
      </td>

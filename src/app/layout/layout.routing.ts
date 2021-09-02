@@ -7,6 +7,8 @@ import { CommonModule } from '@angular/common';
 // components
 import { LayoutComponent } from './layout.component';
 
+
+
 const routes: Routes = [
     {
         path: '', component: LayoutComponent, children: [
@@ -45,6 +47,12 @@ const routes: Routes = [
                 loadChildren: './appdata/appdata.module#AppdataModule',
                 data: {breadcrumb: 'Dashboard', title: 'appdata'}
             },
+            {
+                path: 'message',
+                loadChildren: './message/message.module#MessageModule',
+                data: {breadcrumb: 'Dashboard', title: 'message'}
+            },
+          
          
         ]
     }

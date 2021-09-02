@@ -14,12 +14,12 @@ import { ChangePasswordModule } from './common/change-password/change-password.m
 import { SideBarComponent } from './common/side-bar/side-bar.component';
 
 
+
 @NgModule({
   declarations: [
     LayoutComponent,
     HeaderComponent,
     SideBarComponent,
-
 
   ],
   imports: [

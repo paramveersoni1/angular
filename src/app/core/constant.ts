@@ -16,7 +16,8 @@ export const SideBarList = {
          {path : 'charities', name:'charities List', icon: 'fa fa-codiepie'},
          { path: 'subscribeplans', name:'Subscriblan', icon:'fa fa-scribd'},
          { path: 'task-list', name:'task-list', icon:'fa fa-tasks'},
-         { path: 'appdata', name:'appdata', icon:'fa fa-tasks'},
+         { path: 'appdata', name:'appdata', icon:'fa fa-area-chart'},
+        //  { path: 'message', name:'message', icon:'fa fa-area-chart'},
     ]
 };
 

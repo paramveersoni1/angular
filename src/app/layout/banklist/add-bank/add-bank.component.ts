@@ -72,7 +72,7 @@ export class AddBankComponent implements OnInit {
     });
 }   
    
-    formSubmit() {this.initRows()
+    formSubmit() {
       if (this.form.valid) {
         this.addEdit();
       }

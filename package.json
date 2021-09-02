@@ -26,11 +26,12 @@
     "@angular/router": "~8.2.13",
     "@angular/service-worker": "~8.2.13",
     "@ismaestro/ngx-scroll-to-first-invalid": "^3.0.0",
-    "@kolkov/angular-editor": "^1.0.2",
+    "@kolkov/angular-editor": "^1.2.0",
     "@ng-select/ng-select": "^3.7.3",
     "bootstrap": "4.1.1",
     "chart.js": "^2.9.3",
     "jquery": "^3.4.1",
+    "ng-ckeditor": "^2.0.5",
     "ng-multiselect-dropdown": "^0.2.14",
     "ng-trim-value-accessor": "^2.0.4",
     "ng2-charts": "^2.4.2",
@@ -43,7 +44,7 @@
     "popper.js": "^1.16.1",
     "rxjs": "~6.4.0",
     "sweetalert2": "^8.17.6",
-    "tslib": "^1.10.0",
+    "tslib": "^1.14.1",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
